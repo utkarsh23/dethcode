@@ -5,22 +5,6 @@ const { argv } = require("./argv");
 
 const additionalExtensions = [
   {
-    name: "solidity-lang",
-    repo: "https://github.com/hasparus/vscode-solidity-extenstion.git",
-    branchOrTag: "v1.3.0",
-    getPackageJSON: () =>
-      // @ts-ignore
-      require("../additional-extensions/solidity-lang/package.json"),
-  },
-  {
-    name: "vscode-vyper-syntax",
-    repo: "https://github.com/dethcrypto/vscode-vyper.git",
-    branchOrTag: "minimal-extension",
-    getPackageJSON: () =>
-      // @ts-ignore
-      require("../additional-extensions/vscode-vyper-syntax/package.json"),
-  },
-  {
     name: "clarity",
     repo: "https://github.com/LNow/vscode-clarity.git",
     branchOrTag: "main",

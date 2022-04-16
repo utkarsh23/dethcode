@@ -10,25 +10,18 @@ export const ethViewerCommands = {
 
     let path = url.pathname.slice(1);
 
-    if (path.startsWith("address/")) path = path.slice(8);
-    if (path.startsWith("token/")) path = path.slice(6);
-    if (path.endsWith("/")) path = path.slice(0, -1);
+    if (path.startsWith("txid/")) path = path.slice(5);
+    if (path.includes("/")) path = path.split('?')[0];
 
-    return path.startsWith("0x") ? path : undefined;
+    // The contract is represented by either of the following:
+    // a) Transaction ID (eg. 0xd8a9a4528ae833e1894eee676af8d218f8facbf95e166472df2c1a64219b5dfb)
+    // b) Contract ID (eg. SP000000000000000000002Q6VF78.bns)
+    const checkIfContract = (p: string) => (p.startsWith("0x") || p.includes("."));
+
+    return checkIfContract(path) ? path : undefined;
   },
-  getApiName: (): string | undefined => {
-    const { hostname } = window.location;
-
-    const searchParam = new URLSearchParams(window.location.search).get(
-      "explorer"
-    );
-
-    if (searchParam) return searchParam;
-
-    // @todo this can be deprecated after we deploy and configure iframe entrypoints
-    if (hostname.endsWith(".deth.net")) return hostname.slice(0, -9);
-
-    return undefined;
+  getApiName: (): string => {
+    return "mainnet";
   },
   openRepoOnGithub: () => {
     window.open("https://github.com/dethcrypto/ethereum-code-viewer", "_blank");

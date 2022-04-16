@@ -8,15 +8,11 @@ import {
 } from "vscode";
 
 import * as explorer from "./explorer";
-import { fileExtension } from "./explorer/fileExtension";
 import {
   FileSystem,
   MemFSTextSearchProvider,
   StaticFileSearchProvider,
 } from "./fs";
-import { fixtures } from "./test/fixtures";
-
-const IS_ONLINE = true; // Treat this as a toggle for development.
 
 let fileSearchProviderDisposable: Disposable | undefined;
 let textSearchProviderDisposable: Disposable | undefined;
@@ -31,9 +27,7 @@ export async function openContractSource(
   context: ExtensionContext,
   args: OpenContractSourceArgs
 ) {
-  const [entries, info] = await saveContractFilesToFs(args);
-
-  const mainFile = getMainContractFile(entries, info);
+  const { entries, mainFile } = await saveContractFilesToFs(args);
 
   fileSearchProviderDisposable?.dispose();
   fileSearchProviderDisposable = workspace.registerFileSearchProvider(
@@ -49,9 +43,7 @@ export async function openContractSource(
   );
   context.subscriptions.push(textSearchProviderDisposable);
 
-  await showTextDocument(mainFile);
-
-  return info;
+  await showTextDocument(`${mainFile}`);
 }
 
 async function saveContractFilesToFs({
@@ -59,43 +51,15 @@ async function saveContractFilesToFs({
   address,
   apiName,
 }: OpenContractSourceArgs) {
-  let result: explorer.FetchFilesResult;
-
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  if (IS_ONLINE) {
-    result = await explorer.fetchFiles(apiName, address);
-  } else {
-    result = fixtures.etherscanResult;
-  }
+  let result = await explorer.fetchFiles(apiName, address);
 
   const entries = Object.entries(result.files);
   for (const [path, content] of entries) {
     fs.writeFile(path, content);
   }
 
-  return [entries, result.info] as const;
-}
-
-function getMainContractFile(
-  files: [string, ...unknown[]][],
-  info: explorer.FetchFilesResult["info"]
-): string {
-  const ext = fileExtension(info);
-
-  let fileToShow =
-    info.implementation &&
-    files.find(([path]) =>
-      path.endsWith(`/${info.implementation!.ContractName}${ext}`)
-    );
-
-  if (!fileToShow)
-    fileToShow = files.find(([path]) =>
-      path.endsWith(`/${info.ContractName}${ext}`)
-    );
-
-  if (!fileToShow) fileToShow = files.sort(byPathLength)[0];
-
-  return fileToShow[0];
+  return { entries, mainFile: result.mainFile };
 }
 
 async function showTextDocument(path: string) {
@@ -115,27 +79,3 @@ async function showTextDocument(path: string) {
     "workbench.files.action.showActiveFileInExplorer"
   );
 }
-
-const byPathLength = (
-  a: [string, ...unknown[]],
-  b: [string, ...unknown[]]
-): number => b[0].split("/").length - a[0].split("/").length;
-
-// A note for later?
-// function _onFileChangeOnce(
-//   context: vscode.ExtensionContext,
-//   fs: FileSystem,
-//   path: string,
-//   callback: (file: vscode.FileChangeEvent) => void
-// ) {
-//   const disposable = fs.onDidChangeFile((events) => {
-//     const event = events.find((event) => event.uri.path === path);
-//     if (event) {
-//       callback(event);
-//       disposable.dispose();
-//       context.subscriptions.splice(context.subscriptions.indexOf(disposable));
-//     }
-//   });
-
-//   context.subscriptions.push(disposable);
-// }

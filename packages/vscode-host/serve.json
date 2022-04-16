@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/(address/|token/)?0x([0-9a-fA-F])*",
+      "source": "/txid/([0-9a-zA-Z])*.([0-9a-zA-Z-])*",
       "destination": "/index.html"
     }
   ]
