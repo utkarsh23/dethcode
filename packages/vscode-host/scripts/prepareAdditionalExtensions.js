@@ -20,6 +20,14 @@ const additionalExtensions = [
       // @ts-ignore
       require("../additional-extensions/vscode-vyper-syntax/package.json"),
   },
+  {
+    name: "clarity",
+    repo: "https://github.com/LNow/vscode-clarity.git",
+    branchOrTag: "main",
+    getPackageJSON: () =>
+      // @ts-ignore
+      require("../additional-extensions/clarity/package.json"),
+  },
 ];
 
 function prepareAdditionalExtensions() {

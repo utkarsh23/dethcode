@@ -1,7 +1,7 @@
 import { expect } from "earljs";
 
-import { explorerApiUrls } from "../ethereum-viewer/src/explorer/networks";
-import { apiUrlToWebsite } from "../ethereum-viewer/src/explorer/apiUrlToWebsite";
+import { explorerApiUrls } from "../stacks-viewer/src/explorer/networks";
+import { apiUrlToWebsite } from "../stacks-viewer/src/explorer/apiUrlToWebsite";
 import { ethViewerCommands } from "../vscode-host/src/deth/commands/ethViewerCommands";
 import { givenUrl } from "../vscode-host/src/test/test-utils";
 import { toDethNet } from "./bookmarklet";

@@ -7,10 +7,10 @@
       "debugWebWorkerHost": true,
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/packages/ethereum-viewer",
+        "--extensionDevelopmentPath=${workspaceFolder}/packages/stacks-viewer",
         "--extensionDevelopmentKind=web"
       ],
-      "outFiles": ["${workspaceFolder}/packages/ethereum-viewer/dist/**/*.js"],
+      "outFiles": ["${workspaceFolder}/packages/stacks-viewer/dist/**/*.js"],
       "preLaunchTask": "npm: watch"
     },
     {
@@ -19,11 +19,11 @@
       "debugWebWorkerHost": true,
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/packages/ethereum-viewer",
+        "--extensionDevelopmentPath=${workspaceFolder}/packages/stacks-viewer",
         "--extensionDevelopmentKind=web",
-        "--extensionTestsPath=${workspaceFolder}/packages/ethereum-viewer/dist/test/run-tests"
+        "--extensionTestsPath=${workspaceFolder}/packages/stacks-viewer/dist/test/run-tests"
       ],
-      "outFiles": ["${workspaceFolder}/packages/ethereum-viewer/dist/**/*.js"],
+      "outFiles": ["${workspaceFolder}/packages/stacks-viewer/dist/**/*.js"],
       "preLaunchTask": "npm: watch"
     }
   ]

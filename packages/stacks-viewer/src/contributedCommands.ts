@@ -62,7 +62,7 @@ export function registerContributedCommands(
 
   for (const [key, value] of Object.entries(contributedCommands)) {
     context.subscriptions.push(
-      commands.registerCommand(`ethereum-viewer.${key}`, value)
+      commands.registerCommand(`stacks-viewer.${key}`, value)
     );
   }
 }

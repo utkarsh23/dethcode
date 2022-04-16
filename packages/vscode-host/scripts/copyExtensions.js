@@ -22,8 +22,8 @@ function copyExtensions() {
   const extensions = [
     // main built-in extension, responsible for fetching and displaying contracts
     {
-      extensionPath: "ethereum-viewer",
-      packageJSON: require("../../ethereum-viewer/package.json"),
+      extensionPath: "stacks-viewer",
+      packageJSON: require("../../stacks-viewer/package.json"),
       packageNLS: null,
     },
     // additional built-in extensions, Solidity and Vyper language support
@@ -35,15 +35,15 @@ function copyExtensions() {
   ];
 
   // copy our additional built-in extensions
-  log.info("Copying ethereum-viewer extension...");
+  log.info("Copying stacks-viewer extension...");
 
   copySync(
-    "../../ethereum-viewer/dist",
-    "../dist/extensions/ethereum-viewer/dist"
+    "../../stacks-viewer/dist",
+    "../dist/extensions/stacks-viewer/dist"
   );
   copySync(
-    "../../ethereum-viewer/package.json",
-    "../dist/extensions/ethereum-viewer/package.json"
+    "../../stacks-viewer/package.json",
+    "../dist/extensions/stacks-viewer/package.json"
   );
 
   const withoutNodeModules = { filter: (src) => !src.includes("node_modules") };

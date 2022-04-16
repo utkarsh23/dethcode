@@ -23,7 +23,7 @@ export function renderStatusBarItems(
 
     const tooltip = `Open ${link}`;
     renderStatusBarItem({
-      key: "ethereum-viewer.etherscan-link",
+      key: "stacks-viewer.etherscan-link",
       text: `$(eye) See ${contractName} ${where} (${contractAddress})`,
       tooltip,
       command: {

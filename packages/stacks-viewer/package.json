@@ -1,5 +1,5 @@
 {
-  "name": "ethereum-viewer",
+  "name": "stacks-viewer",
   "license": "MIT",
   "version": "0.1.0",
   "browser": "./dist/extension.js",
@@ -43,7 +43,7 @@
   ],
   "contributes": {
     "commands": {
-      "command": "ethereum-viewer.open",
+      "command": "stacks-viewer.open",
       "category": "DethCode",
       "title": "Open smart contract source code"
     }

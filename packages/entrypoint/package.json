@@ -1,5 +1,5 @@
 {
-  "name": "@dethcrypto/ethereum-viewer-app-entrypoint",
+  "name": "@dethcrypto/stacks-viewer-app-entrypoint",
   "description": "The website hosted on convenience URL entry points powering the 'simple domain change' use case.",
   "private": true,
   "scripts": {

@@ -7,7 +7,7 @@
   },
   "include": [
     "*.ts",
-    "../ethereum-viewer/src/explorer/**/*.ts",
+    "../stacks-viewer/src/explorer/**/*.ts",
     "../vscode-host/src/deth/**/*.ts",
     "../vscode-host/src/test/**/*.ts"
   ]
