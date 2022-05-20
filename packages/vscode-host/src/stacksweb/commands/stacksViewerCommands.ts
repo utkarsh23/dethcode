@@ -21,6 +21,11 @@ export const ethViewerCommands = {
     return checkIfContract(path) ? path : undefined;
   },
   getApiName: (): string => {
+    const params = new URLSearchParams(window.location.search);
+    const chain = params.get("chain");
+    if (chain && ["mainnet", "testnet"].includes(chain)) {
+      return chain;
+    }
     return "mainnet";
   },
   openRepoOnGithub: () => {

@@ -7,13 +7,13 @@ import {
   IWorkspace,
   IWorkspaceProvider,
 } from "vs/workbench/workbench.web.api";
-import { renderNotification } from "../../../deth/notification";
+import { renderNotification } from "../../../stacksweb/notification";
 import {
   CommandId,
   ethViewerCommands,
   getCommands,
-} from "../../../deth/commands/getCommands";
-import { patchForWorkingInIframe } from "../../../deth/in-iframe/patchForWorkingInIframe";
+} from "../../../stacksweb/commands/getCommands";
+import { patchForWorkingInIframe } from "../../../stacksweb/in-iframe/patchForWorkingInIframe";
 
 async function main() {
   patchForWorkingInIframe();

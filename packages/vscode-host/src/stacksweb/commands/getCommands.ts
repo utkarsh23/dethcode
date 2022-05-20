@@ -1,5 +1,5 @@
 import { Command, CommandId } from "./Command";
-import { EthViewerCommands, ethViewerCommands } from "./ethViewerCommands";
+import { EthViewerCommands, ethViewerCommands } from "./stacksViewerCommands";
 
 export { Command, CommandId, ethViewerCommands };
 

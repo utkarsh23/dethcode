@@ -1,5 +1,5 @@
 import type * as workbench from "vs/workbench/workbench.web.api";
-import { EthViewerCommands } from "./ethViewerCommands";
+import { EthViewerCommands } from "./stacksViewerCommands";
 
 export type CommandId = `dethcrypto.vscode-host.${string}`;
 

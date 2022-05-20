@@ -134,7 +134,7 @@ import {
   ACTIVITY_BAR_BADGE_BACKGROUND,
   ACTIVITY_BAR_BADGE_FOREGROUND,
 } from "vs/workbench/common/theme";
-import { EthereumViewerWelcomePage } from "../../../../../deth/welcomePage";
+import { EthereumViewerWelcomePage } from "../../../../../stacksweb/welcomePage";
 
 const SLIDE_TRANSITION_TIME_MS = 250;
 

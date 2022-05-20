@@ -1,4 +1,4 @@
-import { UnionToIntersection } from "../commands/ethViewerCommands";
+import { UnionToIntersection } from "../commands/stacksViewerCommands";
 import { log } from "../logger";
 import {
   ExposedFunctions,

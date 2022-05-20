@@ -122,8 +122,12 @@ export async function fetchFiles(
       apiUrl
       + "/extended/v1/contract/"
       + contract;
-    const contractInfo = await fetch(contractInfoUrl) as types.ContractIdResponse;
-    files[addClarityExtension(`use-trait/${contract}`)] = contractInfo.source_code;
+    try {
+      const contractInfo = await fetch(contractInfoUrl) as types.ContractIdResponse;
+      files[addClarityExtension(`use-trait/${contract}`)] = contractInfo.source_code;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   for (let contract of contractList.implTrait) {
@@ -131,8 +135,12 @@ export async function fetchFiles(
       apiUrl
       + "/extended/v1/contract/"
       + contract;
-    const contractInfo = await fetch(contractInfoUrl) as types.ContractIdResponse;
-    files[addClarityExtension(`impl-trait/${contract}`)] = contractInfo.source_code;
+    try {
+      const contractInfo = await fetch(contractInfoUrl) as types.ContractIdResponse;
+      files[addClarityExtension(`impl-trait/${contract}`)] = contractInfo.source_code;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return { files, mainFile: fileName};
