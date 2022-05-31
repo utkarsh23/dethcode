@@ -14,20 +14,15 @@ export function renderStatusBarItems(
 ) {
   if ("contractAddress" in args) {
     const { apiName, contractAddress, contractName } = args;
-    const website = apiUrlToWebsite(explorerApiUrls[apiName]);
-    const link = `${website}/address/${contractAddress}`;
-
-    const where = apiName.endsWith("etherscan")
-      ? "on Etherscan"
-      : "in the explorer";
+    const link = `https://explorer.stacks.co/txid/${contractAddress}?chain=${apiName}`;
 
     const tooltip = `Open ${link}`;
     renderStatusBarItem({
-      key: "stacks-viewer.etherscan-link",
-      text: `$(eye) See ${contractName} ${where} (${contractAddress})`,
+      key: "stacks-viewer.explorer-link",
+      text: `$(eye) See ${contractName} in the explorer (${contractAddress})`,
       tooltip,
       command: {
-        title: "Open on Etherscan",
+        title: "Open on Stacks Explorer",
         command: "vscode.open",
         arguments: [Uri.parse(link)],
       },

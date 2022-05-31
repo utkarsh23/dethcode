@@ -1,11 +1,11 @@
 import { Command, CommandId } from "./Command";
-import { EthViewerCommands, ethViewerCommands } from "./stacksViewerCommands";
+import { StacksViewerCommands, stacksViewerCommands } from "./stacksViewerCommands";
 
-export { Command, CommandId, ethViewerCommands };
+export { Command, CommandId, stacksViewerCommands };
 
 export function getCommands(): readonly Command[] {
-  return Object.entries(ethViewerCommands).map(([id, handler]) => ({
-    id: CommandId(id as keyof EthViewerCommands),
+  return Object.entries(stacksViewerCommands).map(([id, handler]) => ({
+    id: CommandId(id as keyof StacksViewerCommands),
     handler,
   }));
 }

@@ -7,6 +7,6 @@ import type {
 
 export const executeHostCommand: ExecuteHostCommand = (command, ...args) =>
   vscode.commands.executeCommand<any>(
-    `dethcrypto.vscode-host.${command}`,
+    `stackscode.vscode-host.${command}`,
     ...args
   );

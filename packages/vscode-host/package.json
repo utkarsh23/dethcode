@@ -1,8 +1,8 @@
 {
-  "name": "@dethcrypto/stacks-viewer-vscode-host",
+  "name": "@stackscode/stacks-viewer-vscode-host",
   "license": "MIT",
   "version": "1.58.0",
-  "description": "Visual Studio Code host for DethCode extension",
+  "description": "Visual Studio Code host for StacksCode extension",
   "files": [
     "dist/*"
   ],

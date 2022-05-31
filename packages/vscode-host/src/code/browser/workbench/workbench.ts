@@ -7,10 +7,9 @@ import {
   IWorkspace,
   IWorkspaceProvider,
 } from "vs/workbench/workbench.web.api";
-import { renderNotification } from "../../../stacksweb/notification";
 import {
   CommandId,
-  ethViewerCommands,
+  stacksViewerCommands,
   getCommands,
 } from "../../../stacksweb/commands/getCommands";
 import { patchForWorkingInIframe } from "../../../stacksweb/in-iframe/patchForWorkingInIframe";
@@ -56,9 +55,11 @@ async function main() {
     config = { ...config, workspaceProvider };
   }
 
-  setTimeout(() => renderNotification(), 500);
+  const capitalizeFirstLetter = (string: String) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
-  const apiName = ethViewerCommands.getApiName() || "etherscan";
+  const apiName = stacksViewerCommands.getApiName();
 
   create(document.body, {
     ...config,
@@ -72,28 +73,10 @@ async function main() {
     },
     windowIndicator: {
       onDidChange: Event.None,
-      label: localize("playgroundLabel", `$(remote) ${apiName}.deth.net`),
-      tooltip: localize("playgroundTooltip", "See DethCode on GitHub"),
+      label: localize("playgroundLabel", `$(remote) Stacks ${capitalizeFirstLetter(apiName)}`),
+      tooltip: localize("playgroundTooltip", "View Source on GitHub"),
       command: CommandId("openRepoOnGithub"),
     },
-    // @todo extensions gallery would be lit, but we'd need a CORS proxy for it
-    // additionalBuiltinExtensions: [
-    //   ...(config.additionalBuiltinExtensions || []),
-    //   // extensions to fetch on startup
-    // ],
-    // productConfiguration: {
-    //   extensionsGallery: {
-    //     serviceUrl: "https://marketplace.visualstudio.com/_apis/public/gallery",
-    //     itemUrl: "https://marketplace.visualstudio.com/items",
-    //     resourceUrlTemplate:
-    //       "https://{publisher}.vscode-unpkg.net/{publisher}/{name}/{version}/{path}",
-    //     controlUrl:
-    //       "https://az764295.vo.msecnd.net/extensions/marketplace.json",
-    //     recommendationsUrl:
-    //       "https://az764295.vo.msecnd.net/extensions/workspaceRecommendations.json.gz",
-    //     ...{ cacheUrl: "https://vscode.blob.core.windows.net/gallery/index" },
-    //   },
-    // },
   });
 }
 

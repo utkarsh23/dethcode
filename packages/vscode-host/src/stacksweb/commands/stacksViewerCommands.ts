@@ -1,4 +1,4 @@
-export const ethViewerCommands = {
+export const stacksViewerCommands = {
   getBrowserUrl: () => window.location.href,
   replaceBrowserUrl: (url: string) => window.location.replace(url),
   getContractAddress: (): string | undefined => {
@@ -29,19 +29,19 @@ export const ethViewerCommands = {
     return "mainnet";
   },
   openRepoOnGithub: () => {
-    window.open("https://github.com/dethcrypto/ethereum-code-viewer", "_blank");
+    window.open("https://github.com/utkarsh23/stackscode", "_blank");
   },
 };
 
-export type EthViewerCommands = typeof ethViewerCommands;
+export type StacksViewerCommands = typeof stacksViewerCommands;
 
 export type ExecuteHostCommand = UnionToIntersection<
   {
-    [K in keyof EthViewerCommands]: (
+    [K in keyof StacksViewerCommands]: (
       command: K,
-      ...args: Parameters<EthViewerCommands[K]>
-    ) => Thenable<ReturnType<EthViewerCommands[K]>>;
-  }[keyof EthViewerCommands]
+      ...args: Parameters<StacksViewerCommands[K]>
+    ) => Thenable<ReturnType<StacksViewerCommands[K]>>;
+  }[keyof StacksViewerCommands]
 >;
 
 export declare type UnionToIntersection<U> = (

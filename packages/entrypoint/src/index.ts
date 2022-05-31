@@ -1,6 +1,6 @@
 import type { UnionToIntersection } from "ts-essentials";
 
-import type { ExposedFunctions } from "../../vscode-host/src/deth/in-iframe/lib";
+import type { ExposedFunctions } from "../../vscode-host/src/stacksweb/in-iframe/lib";
 
 const log = console.log.bind(console, "\x1b[32m [ecv:top]");
 
@@ -14,16 +14,10 @@ url.search = search;
 
 log("Starting on", { hostname, pathname, search });
 
-// prefix of the hostname is passed to `explorer` search param
-// @see vscode-host/src/deth/commands/ethViewerCommands.ts
-if (hostname.endsWith(".deth.net") && !url.searchParams.get("explorer")) {
-  url.searchParams.set("explorer", hostname.slice(0, -9));
-}
-
 log("setting iframe src:", url.href);
 iframe.setAttribute("src", url.href);
 // @todo in the future, we should also listen for postMessage events when
-// the DethCode app inside of the iframe updates the URL, but it's not happening
+// the StacksCode app inside of the iframe updates the URL, but it's not happening
 // right now
 
 void (function exposeFunctions() {
@@ -66,7 +60,7 @@ void (function exposeFunctions() {
 
     log("iframe loaded, passing channel port");
     // The code responsible for interaction with this port lies in
-    // vscode-host/src/deth/in-iframe.ts
+    // vscode-host/src/stacksweb/in-iframe.ts
     iframeWindow.postMessage({ type: "port-open" }, "*", [channel.port2]);
 
     channel.port1.start();

@@ -101,7 +101,7 @@ const buildTemplate = () => `
  </div>
  `;
 
-export class EthereumViewerWelcomePage {
+export class StacksViewerWelcomePage {
   private container?: HTMLElement;
 
   constructor(

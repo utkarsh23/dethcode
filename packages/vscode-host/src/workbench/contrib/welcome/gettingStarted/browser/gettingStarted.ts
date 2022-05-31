@@ -134,7 +134,7 @@ import {
   ACTIVITY_BAR_BADGE_BACKGROUND,
   ACTIVITY_BAR_BADGE_FOREGROUND,
 } from "vs/workbench/common/theme";
-import { EthereumViewerWelcomePage } from "../../../../../stacksweb/welcomePage";
+import { StacksViewerWelcomePage } from "../../../../../stacksweb/welcomePage";
 
 const SLIDE_TRANSITION_TIME_MS = 250;
 
@@ -193,7 +193,7 @@ export class GettingStartedPage extends EditorPane {
   private stepsContent!: HTMLElement;
   private stepMediaComponent!: HTMLElement;
 
-  private ethereumViewerWelcomePage!: EthereumViewerWelcomePage;
+  private stacksViewerWelcomePage!: StacksViewerWelcomePage;
 
   private layoutMarkdown: (() => void) | undefined;
 
@@ -239,8 +239,8 @@ export class GettingStartedPage extends EditorPane {
       storageService
     );
 
-    this.ethereumViewerWelcomePage = instantiationService.createInstance(
-      EthereumViewerWelcomePage
+    this.stacksViewerWelcomePage = instantiationService.createInstance(
+      StacksViewerWelcomePage
     );
 
     this.container = $(".gettingStartedContainer", {
@@ -1216,7 +1216,7 @@ export class GettingStartedPage extends EditorPane {
   }
 
   private async buildCategoriesSlide() {
-    reset(this.container, this.ethereumViewerWelcomePage.render());
+    reset(this.container, this.stacksViewerWelcomePage.render());
   }
 
   layout(size: Dimension) {

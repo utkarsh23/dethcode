@@ -27,8 +27,8 @@
   "engines": {
     "vscode": "^1.63.0"
   },
-  "displayName": "DethCode",
-  "description": "View source of deployed Ethereum contracts in VSCode",
+  "displayName": "StacksCode",
+  "description": "View source of deployed Stacks contracts in VSCode",
   "publisher": "hasparus",
   "categories": [
     "Other"
@@ -44,7 +44,7 @@
   "contributes": {
     "commands": {
       "command": "stacks-viewer.open",
-      "category": "DethCode",
+      "category": "StacksCode",
       "title": "Open smart contract source code"
     }
   }

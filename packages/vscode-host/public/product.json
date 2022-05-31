@@ -1,9 +1,9 @@
 {
   "productConfiguration": {
-    "nameShort": "DethCode",
-    "nameLong": "DethCode",
-    "applicationName": "deth-viewer",
-    "dataFolderName": ".deth-viewer",
+    "nameShort": "StacksCode",
+    "nameLong": "StacksCode",
+    "applicationName": "stacks-viewer",
+    "dataFolderName": ".stacks-viewer",
     "version": "1.58.0"
   }
 }
