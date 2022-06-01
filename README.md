@@ -13,7 +13,7 @@
 ## Usage
 
 While browsing smart contract code on [Stacks Explorer](https://explorer.stacks.co/) just change the base URL from `.stacks.co` to `.stackscode.co`. This will open Visual Studio Code instance and fetch the verified code using Stacks API.
-
+![Demo](https://github.com/utkarsh23/stackscode/blob/stacks-viewer/assets/demo.gif?raw=true)
 ## Features ⚡
 - Supports mainnet as well as testnet
 - Frictionless: tweak the url while browsing the explorer `explorer.stacks.co` -> `explorer.stackscode.co`
