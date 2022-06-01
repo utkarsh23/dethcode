@@ -20,14 +20,14 @@ const buildTemplate = () => `
          localize("welcomePage.vscode", "Visual Studio Code")
        )}</h1>
        <p class="subtitle detail">
-         View source of deployed Ethereum smart contracts in VS Code
+         View source of deployed Stacks smart contracts in VS Code
        </p>
      </div>
      <div class="row">
        <div class="splash">
          <div class="section">
            <p class="usage-guide">
-             While browsing smart contract code on <a href="https://etherscan.io/" rel="nofollow">Etherscan</a> just change URL from <code>.io</code> to <code>deth.net</code>. This will open Visual Studio Code instance and fetch the verified code using Etherscan API.
+             While browsing smart contract code on <a href="https://explorer.stacks.co/" rel="nofollow">Stacks Explorer</a> just change base URL from <code>.stacks.co</code> to <code>.stackscode.co</code>. This will open Visual Studio Code instance and fetch the clarity code using Stacks API.
            </p>
          </div>
          <div class="section help">
@@ -35,8 +35,7 @@ const buildTemplate = () => `
              localize("welcomePage.help", "Help")
            )}</h2>
            <ul>
-             <li><a href="https://github.com/dethcrypto/ethereum-code-viewer" target="_blank">DethCode Repository</a></li>
-             <li><a href="https://gitcoin.co/grants/4038/typechain-dksth" target="_blank">Typchain & Deth Grant on GitCoin</a></li>
+             <li><a href="https://github.com/utkarsh23/stackscode" target="_blank">StacksCode Repository</a></li>
              <li><a href="https://github.com/microsoft/vscode" target="_blank">VS Code Repository</a></li>
              <li><a href="https://code.visualstudio.com/docs" target="_blank">VS Code Documentation</a></li>
            </ul>
@@ -50,21 +49,15 @@ const buildTemplate = () => `
          <h2 class="caption">Examples</h2>
          <div class="list">
            <div class="item">
-             <a class="button" href="https://etherscan.deth.net/address/0xa3a7b6f88361f48403514059f1f16c8e78d60eec">
-               <h3 class="caption">View <strong>Arbitrum ERC20 Gateway</strong></h3>
-               <span class="detail">0xa3a7b6f88361f48403514059f1f16c8e78d60eec</span>
+             <a class="button" href="https://explorer.stackscode.co/txid/SP000000000000000000002Q6VF78.bns?chain=mainnet">
+               <h3 class="caption">View Example on <strong>Mainnet</strong></h3>
+               <span class="detail">SP000000000000000000002Q6VF78.bns</span>
              </a>
            </div>
            <div class="item">
-             <a class="button" href="https://etherscan.deth.net/address/0x25ace71c97b33cc4729cf772ae268934f7ab5fa1">
-               <h3 class="caption">View <strong>Optimism L1CrossDomainMessenger</strong></h3>
-               <span class="detail">0x25ace71c97b33cc4729cf772ae268934f7ab5fa1</span>
-             </a>
-           </div>
-           <div class="item">
-             <a class="button" href="https://etherscan.deth.net/address/0x6b175474e89094c44da98b954eedeac495271d0f">
-               <h3 class="caption">View <strong>Dai Stablecoin</strong></h3>
-               <span class="detail">0x6b175474e89094c44da98b954eedeac495271d0f</span>
+             <a class="button" href="https://explorer.stackscode.co/txid/ST1B4ZCZB59G2YR4TDYNDWP7FWAPTX03AP9KHH2GE.hc-alpha?chain=testnet">
+               <h3 class="caption">View Example on <strong>Testnet</strong></h3>
+               <span class="detail">ST1B4ZCZB59G2YR4TDYNDWP7FWAPTX03AP9KHH2GE.hc-alpha</span>
              </a>
            </div>
          </div>
@@ -117,7 +110,7 @@ export class StacksViewerWelcomePage {
     }
     const content = marked(buildTemplate());
     this.container = document.createElement("div");
-    this.container.classList.add("dethWelcomePage");
+    this.container.classList.add("stackscodeWelcomePage");
     this.container.innerHTML = content;
     this.onReady(this.container);
 

@@ -5,7 +5,7 @@ const { copySync, readFileSync, writeFileSync, rmSync } = require("fs-extra");
 
 const { argv } = require("./argv");
 
-const PRODUCTION_URL = "https://code.deth.net";
+const PRODUCTION_URL = "https://code.stackscode.co";
 const DEVELOPMENT_URL = "https://localhost:5001";
 const isProd = argv.production || process.env.CI === "true";
 
